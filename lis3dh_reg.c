@@ -56,7 +56,7 @@ int32_t __weak lis3dh_read_reg(const stmdev_ctx_t *ctx, uint8_t reg, uint8_t *da
     return -1;
   }
 
-  ret = ctx->read_reg(ctx->handle, reg, data, len);
+  ret = ctx->read_reg(ctx->handle, reg, data, len, ctx->cs_pin);
 
   return ret;
 }
@@ -82,7 +82,7 @@ int32_t __weak lis3dh_write_reg(const stmdev_ctx_t *ctx, uint8_t reg,
     return -1;
   }
 
-  ret = ctx->write_reg(ctx->handle, reg, data, len);
+  ret = ctx->write_reg(ctx->handle, reg, data, len,  ctx->cs_pin);
 
   return ret;
 }
